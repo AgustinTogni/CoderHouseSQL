@@ -1,5 +1,5 @@
 
-use distribuidora;
+USE distribuidora;
 
 CREATE OR REPLACE VIEW vs_clientes_dni AS
 	(SELECT CL_Nombre, CL_Apellido, CL_DNI FROM clientes);
@@ -21,7 +21,7 @@ CREATE OR REPLACE VIEW vs_empleados_vendedores AS
 	(SELECT T1.ID_Empleado, T1.EP_Nombre, T1.EP_Apellido, T1.EP_DNI, T2.EP_Area FROM empleados T1
     JOIN area_empleados T2 ON (T1.ID_Empleado = T2.ID_Empleado)
     WHERE T2.EP_Area = 'Vendedor');
-
+    
 
     
     

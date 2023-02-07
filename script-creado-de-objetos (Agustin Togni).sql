@@ -1,11 +1,11 @@
 
 -- Creamos la base de datos de la distribuidora
 
-DROP SCHEMA IF EXISTS Distribuidora3;
+DROP SCHEMA IF EXISTS Distribuidora;
 
-CREATE SCHEMA IF NOT EXISTS Distribuidora3;
+CREATE SCHEMA IF NOT EXISTS Distribuidora;
 
-USE Distribuidora3;
+USE Distribuidora;
 
 -- Creamos las tablas
 
@@ -46,7 +46,8 @@ DROP TABLE IF EXISTS detalle_productos;
 CREATE TABLE detalle_productos (
 	ID_DetalleProducto INT NOT NULL UNIQUE AUTO_INCREMENT PRIMARY KEY,
     ID_Producto INT NOT NULL UNIQUE,
-    PT_Precio INT NOT NULL,
+    PT_Costo NUMERIC(10,2) NOT NULL,
+    PT_Precio NUMERIC(10,2) NOT NULL,
     PT_Stock INT NOT NULL,
     PT_Codigo INT NOT NULL,
     FOREIGN KEY (ID_Producto) REFERENCES productos(ID_Producto) ON DELETE CASCADE ON UPDATE CASCADE
@@ -76,7 +77,7 @@ DROP TABLE IF EXISTS pedidos;
 CREATE TABLE pedidos (
 	ID_Pedido INT NOT NULL UNIQUE AUTO_INCREMENT PRIMARY KEY,
     PD_Fecha DATE NOT NULL,
-	PD_Monto INT NOT NULL,
+	PD_Monto NUMERIC(10,2) NOT NULL,
     ID_Cliente INT NOT NULL UNIQUE,
     FOREIGN KEY (ID_Cliente) REFERENCES clientes(ID_Cliente) ON DELETE CASCADE ON UPDATE CASCADE
 );
@@ -86,12 +87,10 @@ DROP TABLE IF EXISTS facturas;
 CREATE TABLE facturas (
 	ID_Factura INT NOT NULL UNIQUE AUTO_INCREMENT PRIMARY KEY,
     FC_Fecha DATE NOT NULL,
-	FC_Monto INT NOT NULL,
+	FC_Monto NUMERIC(10,2) NOT NULL,
     ID_Cliente INT NOT NULL UNIQUE,
     FOREIGN KEY (ID_Cliente) REFERENCES clientes(ID_Cliente) ON DELETE CASCADE ON UPDATE CASCADE
 );
-
-select * from pedidos
 
 
 
