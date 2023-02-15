@@ -1,7 +1,9 @@
 
+-- Seleccionamos el esquema Distribuidora
+
 USE distribuidora;
 
--- Ordenar clientes de una tabla
+-- Ordenar clientes de la tabla clientes.
 
 DROP PROCEDURE IF EXISTS sp_lista_clientes;
 
@@ -23,7 +25,7 @@ BEGIN
 END
 //
 
--- S.P. insertar un nuevo cliente
+-- Creamos una S.P. para poder insertar un nuevo cliente.
 
 DROP PROCEDURE IF EXISTS sp_insertar_cliente;
 
@@ -41,7 +43,7 @@ INSERT INTO clientes VALUES (ID_Cliente, CL_Nombre, CL_Apellido, CL_DNI, CL_CUIT
 END
 //
 
--- S.P. eliminar un cliente
+-- Creamos una S.P. para poder eliminar un cliente.
 
 DROP PROCEDURE IF EXISTS sp_eliminar_cliente;
 

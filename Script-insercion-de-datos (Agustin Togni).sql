@@ -1,5 +1,5 @@
 
--- Seleccionamos el esquema Distribuidora3
+-- Seleccionamos el esquema Distribuidora
 
 USE Distribuidora;
 
