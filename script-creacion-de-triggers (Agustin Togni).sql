@@ -22,7 +22,7 @@ CREATE TABLE logs_insertar_clientes (
 
 DROP TABLE IF EXISTS logs_actualizar_clientes;
 
--- Guardamos en logs una actualizacion de los datos en la tabla "clientes" ademas del usuario que realizo la insercion, fecha y hora de la misma.
+-- Guardamos en logs una actualizacion de los datos en la tabla "clientes" ademas del usuario que realizo la actualizacion, fecha y hora de la misma, datos nuevos y datos viejos.
 CREATE TABLE logs_actualizar_clientes (
 		id_log_actualizar_clientes INT NOT NULL UNIQUE AUTO_INCREMENT PRIMARY KEY,
 	ID_Cliente INT NOT NULL,
@@ -45,7 +45,7 @@ CREATE TABLE logs_actualizar_clientes (
 
 DROP TABLE IF EXISTS logs_eliminar_clientes;
 
--- Guardamos en logs una eliminacion de los datos en la tabla "clientes" ademas del usuario que realizo la insercion, fecha y hora de la misma.
+-- Guardamos en logs una eliminacion de los datos en la tabla "clientes" ademas del usuario que realizo la eliminacion, fecha y hora de la misma.
 CREATE TABLE logs_eliminar_clientes (
 		id_log_eliminar_clientes INT NOT NULL UNIQUE AUTO_INCREMENT PRIMARY KEY,
 	ID_Cliente INT NOT NULL,
@@ -97,7 +97,7 @@ VALUES (NULL, OLD.ID_Cliente,OLD.CL_Nombre,OLD.CL_Apellido,OLD.CL_DNI,OLD.CL_CUI
 
 DROP TABLE IF EXISTS logs_insertar_detalles_productos;
 
--- Guardamos en logs la insercion de los datos en la tabla "clientes" ademas del usuario que realizo la insercion, fecha y hora de la misma.
+-- Guardamos en logs la insercion de los datos en la tabla "detalle_productos" ademas del usuario que realizo la insercion, fecha y hora de la misma.
 CREATE TABLE logs_insertar_detalles_productos (
 		id_log_insertar_detalles_productos INT NOT NULL UNIQUE AUTO_INCREMENT PRIMARY KEY,
 	ID_DetalleProducto INT NOT NULL,
@@ -113,7 +113,7 @@ CREATE TABLE logs_insertar_detalles_productos (
 
 DROP TABLE IF EXISTS logs_actualizar_detalles_productos;
 
--- Guardamos en logs una actualizacion de los datos en la tabla "clientes" ademas del usuario que realizo la insercion, fecha y hora de la misma.
+-- Guardamos en logs una actualizacion de los datos en la tabla "detalle_productos" ademas del usuario que realizo la actualizacion, fecha y hora de la misma, datos nuevos y datos viejos.
 CREATE TABLE logs_actualizar_detalles_productos (
 		id_log_actualizar_detalles_productos INT NOT NULL UNIQUE AUTO_INCREMENT PRIMARY KEY,
 	old_ID_DetalleProducto INT NOT NULL,
@@ -135,7 +135,7 @@ CREATE TABLE logs_actualizar_detalles_productos (
 
 DROP TABLE IF EXISTS logs_eliminar_detalles_productos;
 
--- Guardamos en logs una eliminacion de los datos en la tabla "clientes" ademas del usuario que realizo la insercion, fecha y hora de la misma.
+-- Guardamos en logs una eliminacion de los datos en la tabla "detalle_productos" ademas del usuario que realizo la eliminacion, fecha y hora de la misma.
 CREATE TABLE logs_eliminar_detalles_productos (
 		id_log_eliminar_detalles_productos INT NOT NULL UNIQUE AUTO_INCREMENT PRIMARY KEY,
 	ID_DetalleProducto INT NOT NULL,
