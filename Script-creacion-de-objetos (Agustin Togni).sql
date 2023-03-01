@@ -407,3 +407,60 @@ CREATE OR REPLACE VIEW vs_empleados_vendedores AS
 	(SELECT T1.ID_Empleado, T1.EP_Nombre, T1.EP_Apellido, T1.EP_DNI, T2.EP_Area FROM empleados T1
     JOIN area_empleados T2 ON (T1.ID_Empleado = T2.ID_Empleado)
     WHERE T2.EP_Area = 'Vendedor');
+    
+-- Creando roles
+DROP ROLE IF EXISTS 'read_permissions', 'write_permissions', 'developer_permissions';
+
+CREATE ROLE 'read_permissions', 'write_permissions', 'developer_permissions';
+
+-- Agregando permisos a los roles
+GRANT ALL ON distribuidora.* TO 'developer_permissions';
+GRANT SELECT ON distribuidora.* TO 'read_permissions';
+GRANT INSERT, UPDATE ON distribuidora.* TO 'write_permissions';
+
+-- creando usuarios desarrolladores que tendran todos los permisos
+CREATE USER 'agustin_dev1'@'localhost' IDENTIFIED WITH mysql_native_password BY 'dev1pass';
+CREATE USER 'agustin_dev2'@'localhost' IDENTIFIED WITH mysql_native_password BY 'dev2pass';
+CREATE USER 'agustin_dev3'@'localhost' IDENTIFIED WITH mysql_native_password BY 'dev3pass';
+
+-- creando usuarios que solo tendrán permisos de lectura
+CREATE USER 'agustin_readonly1'@'localhost' IDENTIFIED WITH mysql_native_password BY 'readonly_user1pass';
+CREATE USER 'agustin_readonly2'@'localhost' IDENTIFIED WITH mysql_native_password BY 'readonly_user2pass';
+CREATE USER 'agustin_readonly3'@'localhost' IDENTIFIED WITH mysql_native_password BY 'readonly_user3pass';
+
+-- creando usuarios que tendrán permisos de lectura y escritura
+CREATE USER 'agustin_readwrite1'@'localhost' IDENTIFIED WITH mysql_native_password BY 'readwrite1_userpass';
+CREATE USER 'agustin_readwrite2'@'localhost' IDENTIFIED WITH mysql_native_password BY 'readwrite2_userpass';
+CREATE USER 'agustin_readwrite3'@'localhost' IDENTIFIED WITH mysql_native_password BY 'readwrite3_userpass';
+
+-- Agregando usuarios a grupos(roles)
+GRANT 'developer_permissions' TO 'agustin_dev1'@'localhost', 'agustin_dev2'@'localhost', 'agustin_dev3'@'localhost';
+GRANT 'read_permissions' TO 'agustin_readonly1'@'localhost', 'agustin_readonly2'@'localhost', 'agustin_readonly3'@'localhost';
+GRANT 'write_permissions' TO 'agustin_readwrite1'@'localhost', 'agustin_readwrite2'@'localhost', 'agustin_readwrite3'@'localhost';
+
+-- activamos los roles por defecto para cuando se logen los usuarios
+SET DEFAULT ROLE ALL TO
+	'agustin_dev1'@'localhost',
+	'agustin_dev2'@'localhost',
+	'agustin_dev3'@'localhost',
+	'agustin_readonly1'@'localhost',
+	'agustin_readonly2'@'localhost',
+	'agustin_readonly3'@'localhost',
+	'agustin_readwrite1'@'localhost',
+	'agustin_readwrite2'@'localhost',
+	'agustin_readwrite3'@'localhost';
+
+-- revisamos que se hallan creados los usuarios en la base de datos 'mysql' en la tabla 'user'
+SELECT * FROM mysql.user
+WHERE user LIKE 'agustin%';
+
+-- Eliminamos los usuarios
+DROP USER 'agustin_dev1'@'localhost',
+		  'agustin_dev2'@'localhost',
+		  'agustin_dev3'@'localhost',
+		  'agustin_readonly1'@'localhost',
+		  'agustin_readonly2'@'localhost',
+		  'agustin_readonly3'@'localhost',
+		  'agustin_readwrite1'@'localhost',
+		  'agustin_readwrite2'@'localhost',
+		  'agustin_readwrite3'@'localhost';
