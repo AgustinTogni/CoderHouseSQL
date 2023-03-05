@@ -373,36 +373,26 @@ END
 -- Creamos las distintas vistas de las tablas.
 
 -- Mostramos una lista de los DNI de todos los clientes.
-DROP VIEW IF EXISTS vs_clientes_dni;
-
 CREATE OR REPLACE VIEW vs_clientes_dni AS
 	(SELECT CL_Nombre, CL_Apellido, CL_DNI FROM clientes);
  
 -- Mostramos una lista de todos los productos cuya marca sea Corsair. 
-DROP VIEW IF EXISTS vs_productos_corsair;
-
 CREATE OR REPLACE VIEW vs_productos_corsair AS
 	(SELECT ID_Producto, Producto, Marca, Modelo FROM productos
     WHERE Marca = 'Corsair');
 
 -- Mostramos una lista de todas las facturas cuyo monto sea mayor a $150.000.    
-DROP VIEW IF EXISTS vs_150k_facturas;
-
 CREATE OR REPLACE VIEW vs_150k_facturas AS
 	(SELECT ID_Factura, FC_Fecha, FC_Monto FROM facturas
     WHERE FC_Monto > 150000);
 
 -- Mostramos una lista que muestra los precios de todos los productos cuya marca sea Logitech.
-DROP VIEW IF EXISTS vs_precios_logitech;    
-
 CREATE OR REPLACE VIEW vs_precios_logitech AS
 	(SELECT T1.ID_Producto, T1.Producto, T1.Marca, T1.Modelo, T2.PT_Precio FROM productos T1
     JOIN detalle_productos T2 ON (T1.ID_Producto = T2.ID_Producto)
     WHERE T1.Marca = 'logitech');
 
--- Mostramos una lista de todos los empleados que pertenezcan a el area de vendedores.
-DROP VIEW IF EXISTS vs_empleados_vendedores;    
-
+-- Mostramos una lista de todos los empleados que pertenezcan a el area de vendedores. 
 CREATE OR REPLACE VIEW vs_empleados_vendedores AS
 	(SELECT T1.ID_Empleado, T1.EP_Nombre, T1.EP_Apellido, T1.EP_DNI, T2.EP_Area FROM empleados T1
     JOIN area_empleados T2 ON (T1.ID_Empleado = T2.ID_Empleado)
