@@ -41,24 +41,23 @@ VALUES
     (null, 'Hipolyto 809', '1022', 'Norte', 14),
     (null, 'Juan Manuel 980', '1112', 'Sur', 15);
     
-    
 INSERT INTO productos
 VALUES
-	(null, 'Mouse', 'Logitech', 'G502'),
-    (null, 'Mouse', 'Corsair', 'R32'),
-    (null, 'Mouse', 'Corsair', 'R202'),
-    (null, 'Teclado', 'Logitech', 'G809'),
-    (null, 'Teclado', 'Corsair', 'R302'),
-    (null, 'Mouse', 'Logitech', 'G202'),
-    (null, 'Mouse', 'Logitech', 'G102'),
-    (null, 'Teclado', 'Corsair', 'R502'),
-    (null, 'Mouse', 'Corsair', 'R232'),
-    (null, 'Mouse', 'Corsair', 'R552'),
-    (null, 'Mouse', 'Corsair', 'R912'),
-    (null, 'Teclado', 'Logitech', 'G552'),
-    (null, 'Teclado', 'Logitech', 'G772'),
-    (null, 'Mouse', 'Corsair', 'R302'),
-    (null, 'Mouse', 'Logitech', 'G522');
+	(null, 'Destornillador', 'Emtop', 'E502'),
+    (null, 'Destornillador', 'Bremen', 'B32'),
+    (null, 'Destornillador', 'Bremen', 'B202'),
+    (null, 'Alicate', 'Emtop', 'E809'),
+    (null, 'Alicate', 'Bremen', 'B302'),
+    (null, 'Destornillador', 'Emtop', 'E202'),
+    (null, 'Destornillador', 'Emtop', 'E102'),
+    (null, 'Alicate', 'Bremen', 'B502'),
+    (null, 'Destornillador', 'Bremen', 'B232'),
+    (null, 'Destornillador', 'Bremen', 'B552'),
+    (null, 'Destornillador', 'Bremen', 'B912'),
+    (null, 'Alicate', 'Emtop', 'E552'),
+    (null, 'Alicate', 'Emtop', 'E772'),
+    (null, 'Destornillador', 'Bremen', 'B302'),
+    (null, 'Destornillador', 'Emtop', 'E522');
     
 INSERT INTO detalle_productos
 VALUES
