@@ -13,4 +13,5 @@ Estoy abierto a recibir cualquier tipo de sugerencia, corrección o consejo de q
 - Paquete Office
 	- Excel
 	- PowerPoint
+- Archivos PDF
 
